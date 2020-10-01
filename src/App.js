@@ -1,36 +1,22 @@
 import React from 'react';
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
-import DogList from "./DogList"; 
-import DogDetails from "./DogDetails"; 
+import Router from "./Router"; 
 import Nav from "./Nav"; 
+import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 import whiskey from "./whiskey.jpg";
 import duke from "./duke.jpg"; 
 import perry from "./perry.jpg"; 
 import tubby from "./tubby.jpg"; 
 
 
-function App() {
+function App(props) {
+  // console.log(dogs[0])
   return (
-    <BrowserRouter>
-      <Switch>
-        <Nav />
-        <Route exact path="/dogs" >
-          <DogList
-            // dogs= {dogs.name}
-           /> // what props will this need?
-          console.log(props)
-        </Route>
-        <Route path="/dogs/:name" >
-          <DogDetails 
-            name={dogs.name}
-            src={dogs.src}
-            age={dogs.age}
-            facts={dogs.facts}
-          /> // what props will this need?
-        </Route>
-        <Redirect to="/dogs" />
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+          <Nav dogs={props.dogs} />
+          <Router dogs={props.dogs} />
+      </BrowserRouter>
+    </div>
   );
 }
 
@@ -79,3 +65,4 @@ App.defaultProps = {
   ]
 }
 export default App;
+

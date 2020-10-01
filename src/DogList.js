@@ -1,24 +1,33 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import DogDetails from "./DogDetails"
+import { Link, Redirect } from "react-router-dom";
+import DogDetails from "./DogDetails"; 
 
 function DogList(props){
-    console.log('props', props)
+    // console.log('props', props)
     return (
       <div>
-        {props.dogs.map( dog => (
-          <DogDetails
-            name={dog.name}
-            src={dog.src}
-            age={dog.age}
-            facts={dog.facts} 
-        />
-        ))}
+        
+        {/* {dogs.map(dog => (
+            <div>
+                name={dog.name}
+                <img src={dog.src} />
+                age={dog.age}
+                facts={dog.facts} 
+                <NavLink name={dog.name} to={`/dogs/${dog.name.toLowerCase()}`} >
+              {dog.name}
+            </NavLink>
+                
+            </div>
+        ))} */}
       </div>
     )
   }
 
 export default DogList; 
+
+
+
 
 
   
